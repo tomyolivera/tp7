@@ -6,45 +6,21 @@
     <h1 class="display-4">Welcome</h1>
 
     <form method="POST" action='@Url.Action("Habitacion1", "Escape")'>
-        <label>
-            Clave
+        <div class="form-group">
+            <label for="name">Clave</label>
             <input name="clave" class="form-control">
-            <input class="btn btn-success" type="submit" value="Enviar">
-        </label>
+        </div>
+
+        <button class="btn btn-success">Enviar</button>
     </form>
 
-    @ViewBag.Clave
-
-    @{
+    @* @{
         if(ViewBag.Error != ""){
-            <div class="modal fade" id="modal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Términos y condiciones</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-
-                        <div class="modal-body">
-                            @ViewBag.Error
-                        </div>
-                        
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>         
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h4> @ViewBag.Error </h4>
         }
-    }
-
+    } *@
 </div>
 
- <script>
-    const modal = new bootstrap.Modal(document.getElementById('modal'), {
-        keyboard: false,
-        backdrop: 'static'
-    });
-
-    modal.show();
+<script>
+    @* $("#modal").modal("show"); *@
 </script>

@@ -15639,8 +15639,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\xampp\\htdocs\\files\\ORT\\tp07\\tp7\\Views\\Home\\tutorial.cshtml",
-      "TargetPath": "Views\\Home\\tutorial.cshtml",
+      "FilePath": "c:\\xampp\\htdocs\\files\\ORT\\tp07\\tp7\\Views\\Home\\Tutorial.cshtml",
+      "TargetPath": "Views\\Home\\Tutorial.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -23,39 +23,40 @@ namespace tp7.Controllers
             return View();
         }
 
-        [HttpPost]
+        // [HttpPost]
         public IActionResult Habitacion1(string clave)
         {
-            // string claveToLower = clave.ToLower();
+            if (clave == "pase"){
+                return Redirect("Habitacion2");
+            }
 
-            // if(claveToLower == "elite"){
-            //     Redirect("Habitacion2");
+            // if(clave.Length > 0){
+            //     ViewBag.Error = "Clave incorrecta";
             // }
-
-            ViewBag.Error = "sos un pelotudo, no es esa";
-            ViewBag.Clave = clave;
-           
+            
             return View();
         }
 
+        // [HttpPost]
         public IActionResult Habitacion2(string clave)
         {
             if(clave == "How to Sell Drugs Online"){
-                Redirect("Habitacion3");
+                return Redirect("Habitacion3");
             }
-            ViewBag.Error = "sos un pelotudo, no es esa";
+
             return View();
         }
 
+        [HttpPost]
         public IActionResult Habitacion3(string clave)
         {
             if(clave == "Peaky Blinders"){
                 Redirect("Habitacion4");
             }
-            ViewBag.Error = "sos un pelotudo, no es esa";
+            
             return View();
         }
-
+        [HttpPost]
         public IActionResult Habitacion4(string clave)
         {
             if(clave == "Breaking Bad"){
