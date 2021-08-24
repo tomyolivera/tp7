@@ -15,7 +15,7 @@ namespace tp7.Controllers
 
         public IActionResult checkResult(string clave, string respuesta, string urlActual, string nuevaUrl)
         {
-            ViewBag.Error = "";
+            ViewBag.Error = null;
 
             if(clave == respuesta){
                 return Redirect(nuevaUrl);
