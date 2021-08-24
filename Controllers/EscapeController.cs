@@ -13,6 +13,19 @@ namespace tp7.Controllers
     {
         private readonly ILogger<EscapeController> _logger;
 
+        public IActionResult checkResult(string clave, string respuesta, string urlActual, string nuevaUrl)
+        {
+            ViewBag.Error = "";
+
+            if(clave == respuesta){
+                return Redirect(nuevaUrl);
+            }else if (clave != ""){
+                ViewBag.Error = "Clave incorrecta";
+            }
+
+            return View(urlActual);
+        }
+
         public EscapeController(ILogger<EscapeController> logger)
         {
             _logger = logger;
@@ -24,45 +37,46 @@ namespace tp7.Controllers
         }
 
         // [HttpPost]
-        public IActionResult Habitacion1(string clave)
+        public IActionResult Habitacion1(string clave="")
         {
-            if (clave == "pase"){
-                return Redirect("Habitacion2");
+            if(clave != ""){
+                return this.checkResult(clave, "how to sell drugs online", "Habitacion1", "Habitacion2");
             }
 
-            // if(clave.Length > 0){
-            //     ViewBag.Error = "Clave incorrecta";
-            // }
-            
-            return View();
+            return View("Habitacion1");
         }
 
         // [HttpPost]
-        public IActionResult Habitacion2(string clave)
+        public IActionResult Habitacion2(string clave="")
         {
-            if(clave == "How to Sell Drugs Online"){
-                return Redirect("Habitacion3");
+            if(clave != ""){
+                return this.checkResult(clave, "rick", "Habitacion2", "Habitacion3");
             }
 
-            return View();
+            return View("Habitacion2");
         }
 
-        [HttpPost]
-        public IActionResult Habitacion3(string clave)
+        // [HttpPost]
+        public IActionResult Habitacion3(string clave="")
         {
-            if(clave == "Peaky Blinders"){
-                Redirect("Habitacion4");
+            if(clave != ""){
+                return this.checkResult(clave, "black mirror", "Habitacion3", "Habitacion4");
             }
-            
-            return View();
+
+            return View("Habitacion3");
         }
-        [HttpPost]
-        public IActionResult Habitacion4(string clave)
+        // [HttpPost]
+        public IActionResult Habitacion4(string clave="")
         {
-            if(clave == "Breaking Bad"){
-                Redirect("Victoria");
+            if(clave != ""){
+                return this.checkResult(clave, "los 100", "Habitacion4", "Victoria");
             }
-            ViewBag.Error = "sos un pelotudo, no es esa";
+
+            return View("Habitacion4");
+        }
+
+        public IActionResult Victoria()
+        {
             return View();
         }
 
